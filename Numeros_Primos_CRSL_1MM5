@@ -1,0 +1,39 @@
+#Cecilia Rubí Salazar López
+#2023670148
+#1MM5
+
+def es_primo(numero):
+    if numero <= 1:
+        return False
+    elif numero <= 3:
+        return True
+    elif numero % 2 == 0 or numero % 3 == 0:
+        return False
+    i = 5
+    while i * i <= numero:
+        if numero % i == 0 or numero % (i + 2) == 0:
+            return False
+        i += 6
+    return True
+
+def generar_primos_en_rango(inicio, fin):
+    primos = []
+    for numero in range(max(inicio, 2), fin + 1):
+        if es_primo(numero):
+            primos.append(numero)
+    return primos
+
+try:
+    inicio = int(input("Ingrese el valor inicial del rango: "))
+    fin = int(input("Ingrese el valor final del rango: "))
+
+    if inicio > fin:
+        print("El valor inicial debe ser menor o igual al valor final.")
+    else:
+        lista_primos = generar_primos_en_rango(inicio, fin)
+        if lista_primos:
+            print(f"Los números primos en el rango de {inicio} a {fin} son: {lista_primos}")
+        else:
+            print(f"No hay números primos en el rango de {inicio} a {fin}.")
+except ValueError:
+    print("Por favor, ingrese valores numéricos válidos.")

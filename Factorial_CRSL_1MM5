@@ -1,0 +1,21 @@
+#Cecilia Rubí Salazar López
+#2023670148
+#1MM5
+
+def factorial(numero):
+    if numero < 0:
+        return "El factorial no está definido para números negativos."
+    elif numero == 0:
+        return 1
+    else:
+        resultado = 1
+        for i in range(1, numero + 1):
+            resultado *= i
+        return resultado
+
+try:
+    numero = int(input("Ingrese un número para calcular su factorial: "))
+    resultado = factorial(numero)
+    print(f"El factorial de {numero} es {resultado}")
+except ValueError:
+    print("Por favor, ingrese un número entero válido.")
